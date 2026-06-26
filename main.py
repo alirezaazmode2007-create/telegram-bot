@@ -6,10 +6,13 @@ from flask import Flask, request, jsonify
 from telegram import Update, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import Application, CommandHandler, CallbackQueryHandler, MessageHandler, filters, ContextTypes
 
+with open('token.json', 'r') as f:
+    token = json.load(f)
+
 # تنظیمات
-TELEGRAM_TOKEN = "8888429387:AAHo7nkoBhNCbtR3Oxj98RTHI_akBZyCHRo"
-NAVASAN_API_KEY = "freet1MlzzmhdYsgNz9FiPcVg9xlfBqg"
-NAVASAN_BASE_URL = "http://api.navasan.tech"
+TELEGRAM_TOKEN = token['TELEGRAM_TOKEN']
+NAVASAN_API_KEY = token['NAVASAN_API_KEY']
+NAVASAN_BASE_URL = token['NAVASAN_BASE_URL']
 
 # تنظیم لاگینگ
 logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s', level=logging.INFO)
